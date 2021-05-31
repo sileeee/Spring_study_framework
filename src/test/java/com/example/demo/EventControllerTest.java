@@ -13,7 +13,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest
+
+
+//slicing test : 계층형 테스트로 웹과 관련된 빈만 등록해주는 테스트
+//즉, controller들만 등록됨. 그래서 converter과 formatter이 제대로 빈으로 등록 안되어있으면 test가 깨질 수 있음
+//이런 경우, @WebMvcTest안에 테스트에 필요한 converter나 formatter을 빈으로 등록할 수 있다
+@WebMvcTest({EventFormatter.class, EventController.class})
 class EventControllerTest {
 
     @Autowired
