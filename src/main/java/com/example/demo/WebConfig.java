@@ -11,7 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addFormatters(FormatterRegistry registry){ //registry에 converter등록
-        registry.addConverter(new EventConverter.StringToEventConverter()); //EventConverter등록
+        registry.addFormatter(new EventFormatter()); //EventConverter등록
     }
 //스프링 mvc설정(WebMvcConfigurer)에 등록된 Converter가 모든 컨트롤러에 동작함, 컨트롤러에 요청한 "1"이 converter에서 Event로 변환되어 Event타입으로 받을 수 있음
 }
