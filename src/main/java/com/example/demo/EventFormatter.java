@@ -1,11 +1,13 @@
 package com.example.demo;
 
 import org.springframework.format.Formatter;
+import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.util.Locale;
 
 //빈으로 등록 가능
+@Component
 public class EventFormatter implements Formatter<Event> { //처리할 타입 하나
 
     @Override
